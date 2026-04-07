@@ -1,0 +1,137 @@
+#%RAML 1.0
+title: Book Library API
+version: v1
+baseUri: http://localhost:3000/api
+mediaType: application/json
+
+types:
+  Book:
+    type: object
+    properties:
+      id: integer
+      title: string
+      author: string
+      year: integer
+      /books:
+  get:
+    description: Get all books
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book[]
+              post:
+    description: Add a new book
+    body:
+      application/json:
+        type: Book
+    responses:
+      201:
+        body:
+          application/json:
+            type: Book
+/books/{id}:
+  uriParameters:
+    id:
+      type: integer
+      description: Book ID
+        get:
+    description: Get a book by ID
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book
+      404:
+        description: Book not found
+          put:
+    description: Update a book
+    body:
+      application/json:
+        type: Book
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book
+      404:
+        description: Book not found
+          delete:
+    description: Delete a book
+    responses:
+      204:
+        description: Book deleted
+      404:
+        description: Book not found
+#%RAML 1.0
+title: Book Library API
+version: v1
+baseUri: http://localhost:3000/api
+mediaType: application/json
+
+types:
+  Book:
+    type: object
+    properties:
+      id: integer
+      title: string
+      author: string
+      year: integer
+
+/books:
+  get:
+    description: Get all books
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book[]
+
+  post:
+    description: Add a new book
+    body:
+      application/json:
+        type: Book
+    responses:
+      201:
+        body:
+          application/json:
+            type: Book
+
+/books/{id}:
+  uriParameters:
+    id:
+      type: integer
+      description: Book ID
+
+  get:
+    description: Get a book by ID
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book
+      404:
+        description: Book not found
+
+  put:
+    description: Update a book
+    body:
+      application/json:
+        type: Book
+    responses:
+      200:
+        body:
+          application/json:
+            type: Book
+      404:
+        description: Book not found
+
+  delete:
+    description: Delete a book
+    responses:
+      204:
+        description: Book deleted
+      404:
+        description: Book not found
+        
